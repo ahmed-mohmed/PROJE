@@ -1,3 +1,4 @@
+
 .clearfix{
 	clear: both;
 }
@@ -7,6 +8,14 @@
 	margin: 100px auto;
 	background: var(--white);
 	box-shadow: 5px 21px 20px 20px #3d3f4238;
+}
+
+@media screen and (max-width: 800px) {
+  .resume-box {
+    width: 90%; 
+    height: auto; 
+    margin: 10px auto; 
+  }
 }
 .left-section{
 	background: var(--black);
