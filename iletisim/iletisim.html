@@ -1,85 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="myApp">
 <head>
-  <meta charset="UTF-8">
-  <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="style.css">
-  <title> AngularJS Validation</title>
+	<title>AngularJS Form Validation</title>
+	  <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="style.css">
+	<title>AngularJS Form Validation</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+   <script>
+  var app = angular.module("myApp", []);
+  app.controller("myCtrl", function($scope, $http) {
+    $scope.submitForm = function() {
+      if ($scope.myForm.$valid) {
+        $http.post("submit.php", $scope.user)
+          .then(function(response) {
+            console.log(response);
+            alert("formu doldurduğunuz için teşekkür ederiz.");
+            window.location.reload();
+          });
+      } else {
+        alert("Please fill all required fields.");
+      }
+    };
+  });
+</script>
 </head>
-  
-<body>
-
-    <div ng-app="" class="container" >
-    <form name="myForm" novalidate="">
-	 <i class="fas fa-paper-plane"></i>
-	 
-        <h1></h1>
+<body ng-controller="myCtrl">
+    <div class="container" >
+	   <form name="myForm">
+	   
+	    <i class="fas fa-paper-plane"></i>
 		
 		<div class="input-group">
-        <label>Ad Soyad</label>
-        <input type="text" name="name" ng-model="name" pattern="[a-zA-Z]{1,}" required=""><br>
-        <span ng-show="myForm.$submitted || myForm.name.$dirty">
-            <span input-group class="error" ng-show="myForm.name.$error.required"><i class="fa fa-exclamation-circle"></i>Ad Gerekli</span>
-            <span class="error" ng-show="myForm.name.$error.pattern"><i class="fa fa-exclamation-circle"></i> Ad,Numara olamaz</span>
-        </span>
-        </div>
-		
-		<div class="input-group">
-        <label>Dil</label>
-        <select name="course" ng-model="course" required="">
-            <option>Türkçe</option>
-            <option>العربيه</option>
-            <option>English</option>
-            <option>Français</option>
-        </select><br>
-        <span ng-show="myForm.$submitted || myForm.course.$dirty">
-            <span class="error" ng-show="myForm.course.$error.required"><i class="fa fa-exclamation-circle"></i>Dil Gerekli</span>
-        </span>
+		<label for="name">ad:</label>
+		<input type="text" id="name" name="name" ng-model="user.name" required><br><br>
 		</div>
 		
 		<div class="input-group">
-        <label>Cinsiyet</label><br>
-        <input type="radio" name="gender" ng-model="gender" ng-value="&quot;Male&quot;" required="">
-        <label>Erkek</label>
-        <input type="radio" name="gender" ng-model="gender" ng-value="&quot;Female&quot;" required="">
-        <label>Kadın</label>
-        <span ng-show="myForm.$submitted || myForm.gender.$dirty">
-        <span class="error" ng-show="myForm.gender.$error.required"><i class="fa fa-exclamation-circle"></i> Cinsiyet Gerekli</span>
-        </span>
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" ng-model="user.email" required><br><br>
 		</div>
 		
 		<div class="input-group">
-        <label>Telefon numarası</label>
-        <input type="number" name="phone" ng-model="phone" ng-minlength="10" ng-maxlength="10" required=""><br>
-        <span ng-show="myForm.$submitted || myForm.phone.$dirty">
-            <span class="error" ng-show="myForm.phone.$error.required"><i class="fa fa-exclamation-circle"></i> Telefon numarası gerekli</span>
-            <span class="error" ng-show="((myForm.phone.$error.minlength || myForm.phone.$error.maxlength) &amp;&amp; myForm.phone.$dirty)"><i class="fa fa-exclamation-circle"></i> Telefon Numarası 10 hane olmalıdır</span>
-        </span>
-		</div>
-		
-        <div class="input-group">
-        <label>Doğum Tarihi</label>
-        <input type="date" name="date" ng-model="date" required=""><br>
-        <span ng-show="myForm.$submitted || myForm.date.$dirty">
-            <span class="error" ng-show="myForm.date.$error.required"><i class="fa fa-exclamation-circle"></i> Doğum tarihi gerekli</span>
-        </span>
+        <label for="gender">Cinsiyet:</label>
+        <input type="radio" id="male" name="gender" value="Male" formControlName="genderControl" required> Erkek
+        <input type="radio" id="female" name="gender" value="Female" formControlName="genderControl" required> kadın
 		</div>
 		
 		<div class="input-group">
-        <label>Mesaj</label>
-        <textarea name="Message" ng-model="Message" required=""></textarea><br>
-            <span ng-show="myForm.$submitted || myForm.Message.$dirty">
-            <span class="error" ng-show="myForm.Message.$error.required"><i class="fa fa-exclamation-circle"></i> Mesaj(gerekli)</span>
-        </span>
+        <label for="phone">Telefon:</label>
+        <input type="tel" id="phone" name="phone" ng-model="user.phone" required><br><br>
+		</div>
+		
+		<div class="input-group">
+        <label for="date">Tarih:</label>
+        <input type="date" id="date" name="date" ng-model="user.date" required><br><br>
+		</div>
+		
+		<div class="input-group">
+        <label for="language">Dil:</label>
+        <select id="language" name="language" ng-model="user.language" required>
+            <option value="">Bir dil seç</option>
+            <option value="arabic">Türkçe</option>
+            <option value="english">İngilizce</option>
+            <option value="french">Arapça</option>
+            <option value="spanish">İspanyol</option>
+        </select><br><br>
+		</div>
+		
+		<div class="input-group">
+        <label for="message">mesaj:</label>
+        <textarea id="message" name="message" ng-model="user.message" required></textarea><br><br>
 		</div>
 	
-        <button type="submit">Ekle</button>
-    </form>
-</div>
-  
-
-    
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script> 
+		<input type="submit" value="submit" ng-click="submitForm()">
+	    <input type="reset" value="Sıfırla">
+		
+	</form>
+	</div>
 </body>
-</html>                 
+</html> 
