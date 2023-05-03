@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title> AngularJS Validation</title>
+</head>
+  
+<body>
+
+    <div ng-app="" class="container" >
+    <form name="myForm" novalidate="">
+	 <i class="fas fa-paper-plane"></i>
+	 
+        <h1></h1>
+		
+		<div class="input-group">
+        <label>Ad Soyad</label>
+        <input type="text" name="name" ng-model="name" pattern="[a-zA-Z]{1,}" required=""><br>
+        <span ng-show="myForm.$submitted || myForm.name.$dirty">
+            <span input-group class="error" ng-show="myForm.name.$error.required"><i class="fa fa-exclamation-circle"></i>Ad Gerekli</span>
+            <span class="error" ng-show="myForm.name.$error.pattern"><i class="fa fa-exclamation-circle"></i> Ad,Numara olamaz</span>
+        </span>
+        </div>
+		
+		<div class="input-group">
+        <label>Dil</label>
+        <select name="course" ng-model="course" required="">
+            <option>Türkçe</option>
+            <option>العربيه</option>
+            <option>English</option>
+            <option>Français</option>
+        </select><br>
+        <span ng-show="myForm.$submitted || myForm.course.$dirty">
+            <span class="error" ng-show="myForm.course.$error.required"><i class="fa fa-exclamation-circle"></i>Dil Gerekli</span>
+        </span>
+		</div>
+		
+		<div class="input-group">
+        <label>Cinsiyet</label><br>
+        <input type="radio" name="gender" ng-model="gender" ng-value="&quot;Male&quot;" required="">
+        <label>Erkek</label>
+        <input type="radio" name="gender" ng-model="gender" ng-value="&quot;Female&quot;" required="">
+        <label>Kadın</label>
+        <span ng-show="myForm.$submitted || myForm.gender.$dirty">
+        <span class="error" ng-show="myForm.gender.$error.required"><i class="fa fa-exclamation-circle"></i> Cinsiyet Gerekli</span>
+        </span>
+		</div>
+		
+		<div class="input-group">
+        <label>Telefon numarası</label>
+        <input type="number" name="phone" ng-model="phone" ng-minlength="10" ng-maxlength="10" required=""><br>
+        <span ng-show="myForm.$submitted || myForm.phone.$dirty">
+            <span class="error" ng-show="myForm.phone.$error.required"><i class="fa fa-exclamation-circle"></i> Telefon numarası gerekli</span>
+            <span class="error" ng-show="((myForm.phone.$error.minlength || myForm.phone.$error.maxlength) &amp;&amp; myForm.phone.$dirty)"><i class="fa fa-exclamation-circle"></i> Telefon Numarası 10 hane olmalıdır</span>
+        </span>
+		</div>
+		
+        <div class="input-group">
+        <label>Doğum Tarihi</label>
+        <input type="date" name="date" ng-model="date" required=""><br>
+        <span ng-show="myForm.$submitted || myForm.date.$dirty">
+            <span class="error" ng-show="myForm.date.$error.required"><i class="fa fa-exclamation-circle"></i> Doğum tarihi gerekli</span>
+        </span>
+		</div>
+		
+		<div class="input-group">
+        <label>Mesaj</label>
+        <textarea name="Message" ng-model="Message" required=""></textarea><br>
+            <span ng-show="myForm.$submitted || myForm.Message.$dirty">
+            <span class="error" ng-show="myForm.Message.$error.required"><i class="fa fa-exclamation-circle"></i> Mesaj(gerekli)</span>
+        </span>
+		</div>
+	
+        <button type="submit">Ekle</button>
+    </form>
+</div>
+  
+
+    
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script> 
+</body>
+</html>                 

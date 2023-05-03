@@ -25,7 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href="#" class="sidenav-trigger" data-target="mo"><i class="material-icons">menu</i></a>
 
         <ul class="right hide-on-med-and-down">
+		  <li><a href="iletisim/iletisim.html">iletişim</a></li>
 	      <li><a href="cv.html">CV</a></li>
 		  <li><a href="admin Giriş.html">admin Giriş</a></li>
           <li><a href="#">Api</a></li>
@@ -65,6 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
         <ul class="sidenav grey darken-3 center" id="mo">
           <h3 class="black-text white"><b>AHMED</b></h3>
+		  <li><a href="iletisim/iletisim.html" class="waves-effect waves-light white-text">iletişim</a></li>
 		  <li><a href="cv.html" class="waves-effect waves-light white-text">Cv</a></li>
 		  <li><a href="admin Giriş.html" class="waves-effect waves-light white-text">admin Giriş</a></li>
           <li><a href="#" class="waves-effect waves-light white-text">Api</a></li>
@@ -74,19 +75,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </ul>
      </div>
    </nav>
+   
    <section>
+   <form action ="admin1.php?source=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-box">
             <div class="form-value">
-                <form action="">
-                    <h2>Hoş geldin</h2>
+                    <h2>Login</h2>
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
-						 <span><?php echo $username ; ?></span>
+						 <input type="text" id="username" name="username" value="<?php echo $username; ?>" required>
+						 <label for="username">Email</label>
+						 <span><?php echo $username_err; ?></span>
                     </div>
-                    <button href="index.html" type="submit">Ana sayfa</button>
-                </form>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" id="password" name="password" required>
+                        <label for="">Password</label>
+						<span><?php echo $password_err; ?></span>
+                    </div>
+                    <button type="submit">Log in</button>
             </div>
-        </div>	
+        </div>
+	  </form>
     </section>
   </header>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
