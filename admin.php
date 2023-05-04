@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h2>Login</h2>
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
-						 <input type="text" id="username" name="username" value="<?php echo $username; ?>" required>
+						 <input type="email" id="username" name="username" value="<?php echo $username; ?>" required>
 						 <label for="username">Email</label>
 						 <span><?php echo $username_err; ?></span>
                     </div>
