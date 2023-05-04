@@ -51,16 +51,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  <header>
      <nav class="nav-wrapper grey darken-3">
      <div class="container">
-        <a href="anasayfa.html" class="brand-logo">AHMED</a>
+        <a href="index.html" class="brand-logo">AHMED</a>
         <a href="#" class="sidenav-trigger" data-target="mo"><i class="material-icons">menu</i></a>
 
         <ul class="right hide-on-med-and-down">
 		  <li><a href="iletisim/iletisim.html">iletişim</a></li>
 	      <li><a href="cv.html">CV</a></li>
 		  <li><a href="admin Giriş.html">admin Giriş</a></li>
-          <li><a href="#">Api</a></li>
+          <li><a href="API/API.html">Api</a></li>
 	      <li><a href="şerhim.html">şerhim</a></li>
-          <li><a href="anasayfa.html">anasayfa</a></li>
+          <li><a href="index.html">anasayfa</a></li>
         </ul>
    
         <ul class="sidenav grey darken-3 center" id="mo">
@@ -68,9 +68,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		  <li><a href="iletisim/iletisim.html" class="waves-effect waves-light white-text">iletişim</a></li>
 		  <li><a href="cv.html" class="waves-effect waves-light white-text">Cv</a></li>
 		  <li><a href="admin Giriş.html" class="waves-effect waves-light white-text">admin Giriş</a></li>
-          <li><a href="#" class="waves-effect waves-light white-text">Api</a></li>
+          <li><a href="API/API.html" class="waves-effect waves-light white-text">Api</a></li>
 	      <li><a href="şerhim.html" class="waves-effect waves-light white-text">şerhim</a></li>
-          <li><a href="anasayfa.html" class="waves-effect waves-light white-text">anasayfa</a></li>
+          <li><a href="index.html" class="waves-effect waves-light white-text">anasayfa</a></li>
 	
         </ul>
      </div>
