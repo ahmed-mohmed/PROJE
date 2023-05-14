@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <ul class="right hide-on-med-and-down">
 		  <li><a href="iletisim/iletisim.html">iletişim</a></li>
 	      <li><a href="cv.html">CV</a></li>
-		  <li><a href="admin Giriş.html">admin Giriş</a></li>
+		  <li><a href="admin.php">admin Giriş</a></li>
           <li><a href="API/API.html">Api</a></li>
 	      <li><a href="şerhim.html">şerhim</a></li>
           <li><a href="index.html">anasayfa</a></li>
@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <h3 class="black-text white"><b>AHMED</b></h3>
 		  <li><a href="iletisim/iletisim.html" class="waves-effect waves-light white-text">iletişim</a></li>
 		  <li><a href="cv.html" class="waves-effect waves-light white-text">Cv</a></li>
-		  <li><a href="admin Giriş.html" class="waves-effect waves-light white-text">admin Giriş</a></li>
+		  <li><a href="admin.php" class="waves-effect waves-light white-text">admin Giriş</a></li>
           <li><a href="API/API.html" class="waves-effect waves-light white-text">Api</a></li>
 	      <li><a href="şerhim.html" class="waves-effect waves-light white-text">şerhim</a></li>
           <li><a href="index.html" class="waves-effect waves-light white-text">anasayfa</a></li>
